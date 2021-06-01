@@ -23,7 +23,7 @@ HELP(){
 }
 
 version(){
-	echo "Version : $WERSJA"
+	echo "Version : $VERSION"
 }
 
 chooseCategory(){
