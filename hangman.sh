@@ -171,7 +171,7 @@ play(){
 
 	chooseCategory
 
-	PHRASES_COUNT=`/usr/bin/wc -l "$PATHTIFILE/SLOWNIK.txt" | /usr/bin/cut -d " " -f1`
+	PHRASES_COUNT=`/usr/bin/wc -l "$PATHTOFILE/SLOWNIK.txt" | /usr/bin/cut -d " " -f1`
 	PHRASESARRAY=()
 
    for (( n=0; n<5; n++ ))
