@@ -1,5 +1,5 @@
 # Hangman_BashScript
-This is an implementation of a Hangman game.
+This is an implementation of a Hangman game. I used Zenity to make UI.
 
 <table>
   <tr>
