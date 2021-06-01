@@ -82,7 +82,7 @@ cd $CHOOSEDLANGUAGE
 
     done
 
-	PATH=$LOCAL/$CHOOSEDLANGUAGE/$CHOOSEDCATEGORY/$CURLEVEL
+	PATHTOFILE=$LOCAL/$CHOOSEDLANGUAGE/$CHOOSEDCATEGORY/$CURLEVEL
 
     cd "$LOCAL"
 
@@ -97,12 +97,12 @@ addPhrase(){
 	HASLO=`/usr/bin/zenity --entry --title "Adding phrases" --text "Write a phrase //NO POLISH LETTERS!!!"`
 
 
-	if [ ! -f "$PATH/SLOWNIK.txt" ]; then
-	   touch "$PATH/SLOWNIK.txt"
+	if [ ! -f "$PATHTOFILE/SLOWNIK.txt" ]; then
+	   touch "$PATHTOFILE/SLOWNIK.txt"
 	fi
 
 	if [ -n "$PHRASE" ]; then
-	   echo ${PHRASE^^} >> "$PATH/SLOWNIK.txt"
+	   echo ${PHRASE^^} >> "$PATHTOFILE/SLOWNIK.txt"
 	fi
 
 	addPhrase
@@ -171,8 +171,7 @@ play(){
 
 	chooseCategory
 
-	PHRASES_COUNT=`/usr/bin/wc -l "$PATH/SLOWNIK.txt" | /usr/bin/cut -d " " -f1`
-	echo $PATH
+	PHRASES_COUNT=`/usr/bin/wc -l "$PATHTIFILE/SLOWNIK.txt" | /usr/bin/cut -d " " -f1`
 	PHRASESARRAY=()
 
    for (( n=0; n<5; n++ ))
@@ -185,7 +184,7 @@ play(){
 
 	PHRASESARRAY+=($PHRASE_NUMBER)
 
-	PHRASE=`/bin/cat "$PATH/SLOWNIK.txt" | /usr/bin/head -$PHRASE_NUMBER | /usr/bin/tail -1`
+	PHRASE=`/bin/cat "$PATHTOFILE/SLOWNIK.txt" | /usr/bin/head -$PHRASE_NUMBER | /usr/bin/tail -1`
 	HIDDEN=""
 
    for i in $(/usr/bin/seq 1 ${#PHRASE})
